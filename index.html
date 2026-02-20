@@ -276,6 +276,81 @@
       font-size: 1.6rem; font-style: italic;
       color: var(--girassol); margin-bottom: 0.5rem;
     }
+    /* ───── POP-UP ───── */
+    .popup-overlay {
+      display: none;
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(61,53,48,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      justify-content: center; align-items: center;
+    }
+    .popup-overlay.ativo { display: flex; }
+    .popup-card {
+      background: var(--creme);
+      border: 1px solid rgba(232,184,75,0.3);
+      border-radius: 8px;
+      padding: 3rem 2.5rem;
+      max-width: 420px; width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 16px 60px rgba(61,53,48,0.15);
+      animation: popupEntrar 0.4s ease;
+    }
+    @keyframes popupEntrar {
+      from { opacity: 0; transform: scale(0.9) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .popup-close {
+      position: absolute; top: 14px; right: 18px;
+      font-size: 1rem; color: var(--grafite-leve);
+      cursor: pointer; transition: color .3s;
+    }
+    .popup-close:hover { color: var(--ambar); }
+    .popup-label {
+      font-size: 0.65rem; letter-spacing: 0.3em;
+      color: var(--ambar); margin-bottom: 0.5rem;
+    }
+    .popup-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 300;
+      color: var(--grafite); margin-bottom: 0.5rem;
+    }
+    .popup-linha {
+      width: 40px; height: 1px;
+      background: var(--girassol);
+      margin: 1.2rem auto;
+    }
+    .popup-texto {
+      font-size: 0.9rem; color: var(--grafite-leve);
+      line-height: 1.7;
+    }
+    .popup-versiculo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 0.95rem;
+      color: var(--grafite-leve); line-height: 1.6;
+      margin-bottom: 0.3rem;
+    }
+    .popup-ref {
+      font-size: 0.65rem; letter-spacing: 0.15em;
+      color: var(--ambar); margin-bottom: 1rem;
+    }
+    .popup-data {
+      font-size: 0.75rem; letter-spacing: 0.25em;
+      color: var(--grafite-leve); margin-bottom: 1.5rem;
+    }
+    .popup-btn {
+      background: var(--girassol); color: var(--grafite);
+      border: none; padding: 0.8rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      border-radius: 4px; cursor: pointer;
+      transition: background .3s;
+    }
+    .popup-btn:hover { background: var(--ambar); }
+
     html { scroll-behavior: smooth; }
     @media (max-width: 600px) {
       nav { gap: 1.2rem; padding: 0.8rem 1rem; flex-wrap: wrap; }
@@ -447,6 +522,24 @@
   </div>
 </section>
 
+<!-- POP-UP CONFIRMAÇÃO -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-card">
+    <div class="popup-close" onclick="fecharPopup()">✕</div>
+    <div style="font-size:2.5rem; margin-bottom:1rem;">✦</div>
+    <p class="popup-label">PRESENÇA CONFIRMADA</p>
+    <h2 class="popup-titulo">Obrigado, <span id="popupNome"></span>!</h2>
+    <div class="popup-linha"></div>
+    <p class="popup-texto">Estamos muito felizes que você estará conosco nesse dia tão especial.</p>
+    <p class="popup-texto" style="margin-top:0.8rem;">Um e-mail de confirmação foi enviado para <strong id="popupEmail"></strong></p>
+    <div class="popup-linha"></div>
+    <p class="popup-versiculo">"O cordão de três dobras não se rompe facilmente."</p>
+    <p class="popup-ref">Eclesiastes 4:12</p>
+    <p class="popup-data">07 · 11 · 2026</p>
+    <button class="popup-btn" onclick="fecharPopup()">Fechar ✦</button>
+  </div>
+</div>
+
 <footer>
   <p class="footer-nomes">Clariny & Nathan</p>
   <p>07 DE NOVEMBRO DE 2026</p>
@@ -500,6 +593,9 @@
       btn.style.color = 'white';
       form.querySelector('input[type="text"]').disabled = true;
       form.querySelector('input[type="email"]').disabled = true;
+      document.getElementById('popupNome').textContent = nome.split(' ')[0];
+      document.getElementById('popupEmail').textContent = email;
+      document.getElementById('popupOverlay').classList.add('ativo');
     })
     .catch(function() {
       btn.textContent = 'ERRO — TENTE NOVAMENTE';
@@ -513,6 +609,9 @@
         btn.style.color = '#3D3530';
       }, 3000);
     });
+  }
+  function fecharPopup() {
+    document.getElementById('popupOverlay').classList.remove('ativo');
   }
   atualizarContagem();
   setInterval(atualizarContagem, 1000);
