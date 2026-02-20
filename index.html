@@ -302,6 +302,20 @@
       from { opacity: 0; transform: scale(0.9) translateY(20px); }
       to { opacity: 1; transform: scale(1) translateY(0); }
     }
+    .popup-check {
+      width: 60px; height: 60px;
+      background: #7A9C72;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+      animation: popupCheck 0.5s ease 0.2s both;
+    }
+    .popup-check svg { width: 28px; height: 28px; }
+    @keyframes popupCheck {
+      0% { transform: scale(0); opacity: 0; }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); opacity: 1; }
+    }
     .popup-close {
       position: absolute; top: 14px; right: 18px;
       font-size: 1rem; color: var(--grafite-leve);
@@ -526,15 +540,15 @@
 <div class="popup-overlay" id="popupOverlay">
   <div class="popup-card">
     <div class="popup-close" onclick="fecharPopup()">✕</div>
-    <div style="font-size:2.5rem; margin-bottom:1rem;">✦</div>
+    <div class="popup-check">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
     <p class="popup-label">PRESENÇA CONFIRMADA</p>
     <h2 class="popup-titulo">Obrigado, <span id="popupNome"></span>!</h2>
     <div class="popup-linha"></div>
     <p class="popup-texto">Estamos muito felizes que você estará conosco nesse dia tão especial.</p>
     <p class="popup-texto" style="margin-top:0.8rem;">Um e-mail de confirmação foi enviado para <strong id="popupEmail"></strong></p>
     <div class="popup-linha"></div>
-    <p class="popup-versiculo">"O cordão de três dobras não se rompe facilmente."</p>
-    <p class="popup-ref">Eclesiastes 4:12</p>
     <p class="popup-data">07 · 11 · 2026</p>
     <button class="popup-btn" onclick="fecharPopup()">Fechar ✦</button>
   </div>
