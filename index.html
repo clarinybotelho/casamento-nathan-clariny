@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Clariny & Nathan — 07.11.2026</title>
+  <title>Nathan & Clariny — 16.05.2027</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -70,45 +70,34 @@
       font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
       color: var(--ambar); margin-bottom: 1.5rem;
     }
-    .monogram {
-      width: 90px; height: 110px;
-      border: 1.5px solid var(--girassol);
-      border-radius: 45px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      margin: 0 auto 2rem;
-      position: relative;
+    .hero-logo {
+      width: min(32vw, 100px);
+      margin: 0 auto 1.15rem;
+      line-height: 0;
+      transform: translateY(14px);
     }
-    .monogram::before {
-      content: '✦';
-      position: absolute; top: -10px;
-      font-size: 14px; color: var(--girassol);
-      background: var(--creme); padding: 0 4px;
+    .hero-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
-    .monogram span {
+    .hero-nomes {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem; line-height: 1.1;
-      font-style: italic; color: var(--grafite);
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      font-style: italic;
+      color: var(--grafite);
+      line-height: 1.1;
+      margin: 2.25rem 0 0.35rem;
     }
-    .monogram .divider {
-      font-size: 0.6rem; letter-spacing: 0.2em;
-      color: var(--ambar); margin: 2px 0;
-    }
-    h1.nome-casal {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 300; letter-spacing: 0.06em;
-      color: var(--grafite); margin-bottom: 0.5rem;
-    }
-    h1.nome-casal em { font-style: italic; color: var(--ambar); }
+    .hero-nomes .hero-ampersand { color: var(--ambar); }
     .hero-data {
       font-size: 0.8rem; letter-spacing: 0.3em;
       text-transform: uppercase; color: var(--grafite-leve);
-      margin: 1.2rem 0;
+      margin: 0 0 1.2rem;
     }
     .versiculo-hero {
       font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-size: 1.05rem;
+      font-style: italic; font-size: 1.15rem;
       color: var(--grafite-leve); max-width: 520px;
       line-height: 1.7; margin: 1rem auto 0;
     }
@@ -117,6 +106,14 @@
       font-size: 0.7rem; letter-spacing: 0.15em;
       color: var(--ambar); margin-top: 0.4rem;
     }
+    .historia-divider { margin: 3rem auto 0 !important; }
+    .historia-versiculo {
+      font-size: 0.95rem;
+      max-width: 500px;
+      text-align: center;
+      margin: 0.25rem auto 0 !important;
+    }
+    .historia-versiculo-ref { margin-top: 0.25rem; text-align: center; }
     .countdown {
       display: flex; gap: 2rem; margin-top: 2.5rem;
       justify-content: center;
@@ -196,6 +193,38 @@
       color: var(--grafite-leve);
       line-height: 1.7;
     }
+    .paleta-composicao {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    .paleta-figura { width: 100%; margin: 0; text-align: center; }
+    .paleta-figura img { display: block; width: 100%; max-width: 560px; margin: 0 auto; height: auto; }
+    .paleta-tonalidades {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      width: min(100%, 560px);
+    }
+    .paleta-grupo-titulo {
+      color: var(--ambar); font-size: 0.72rem; letter-spacing: 0.22em;
+      text-transform: uppercase; margin-bottom: 0.75rem;
+    }
+    .paleta-bolinhas { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .paleta-bolinha { display: grid; justify-items: center; gap: 0.35rem; min-width: 64px; }
+    .paleta-bolinha .bolinha {
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 2px solid rgba(61,53,48,0.12);
+      box-shadow: 0 3px 10px rgba(61,53,48,0.12);
+    }
+    .paleta-bolinha span { font-size: 0.68rem; color: var(--grafite-leve); text-align: center; }
+    @media (max-width: 720px) {
+      .paleta-composicao { gap: 1.25rem; }
+      .paleta-figura img { max-width: 440px; }
+      .paleta-tonalidades { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: 100%; }
+    }
 
     /* ───── HISTÓRIA ───── */
     #historia { background: var(--creme); }
@@ -237,6 +266,22 @@
       font-size: 1.1rem; color: var(--grafite);
       line-height: 1.5;
     }
+    .mapa-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      margin-top: 0.75rem;
+      color: var(--ambar); text-decoration: none;
+      font-size: 0.68rem; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color .2s, transform .2s;
+    }
+    .mapa-link:hover { color: var(--girassol); transform: translateX(2px); }
+    .localizacao { background: var(--creme); }
+    .mapa-conteudo { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2rem; align-items: center; margin-top: 2rem; }
+    .mapa-cartao { border-left: 2px solid var(--girassol); padding-left: 1.2rem; }
+    .mapa-frame { width: 100%; min-height: 300px; border: 0; border-radius: 12px; box-shadow: 0 4px 18px rgba(61,53,48,0.1); }
+    .mapa-imagem { height: 220px; object-fit: cover; background: #eee9df; }
+    .mapa-imagem-link { display: block; border-radius: 12px; overflow: hidden; }
+    @media (max-width: 720px) { .mapa-conteudo { grid-template-columns: 1fr; } .mapa-frame { min-height: 260px; } }
 
     /* ───── CONFIRMAR PRESENÇA ───── */
     #presenca { background: var(--creme); }
@@ -254,27 +299,41 @@
     }
     .rsvp-form input:focus { border-color: var(--girassol); }
     .btn-rsvp {
-      background: var(--girassol); color: var(--grafite);
-      border: none; padding: 1rem 2rem;
+      background: #f3e8c4; color: #6b5330;
+      border: 1px solid #e8d39a; padding: 1rem 2rem;
       font-family: 'Jost', sans-serif;
       font-size: 0.75rem; font-weight: 500;
       letter-spacing: 0.2em; text-transform: uppercase;
-      border-radius: 4px; cursor: pointer;
-      transition: background .3s;
+      border-radius: 999px; cursor: pointer;
+      box-shadow: 0 3px 10px rgba(61,53,48,.06);
+      transition: background .3s, transform .2s;
     }
-    .btn-rsvp:hover { background: var(--ambar); }
+    .btn-rsvp:hover { background: #ede0b4; transform: translateY(-1px); }
 
     /* ───── RODAPÉ ───── */
     footer {
       text-align: center; padding: 3rem 2rem;
-      background: var(--grafite);
-      color: rgba(250,247,240,0.6);
+      background: linear-gradient(160deg, var(--creme) 0%, #FDF5DC 50%, var(--ceu-claro) 100%);
+      color: var(--grafite-leve);
       font-size: 0.72rem; letter-spacing: 0.15em;
     }
     footer .footer-nomes {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.6rem; font-style: italic;
-      color: var(--girassol); margin-bottom: 0.5rem;
+      color: var(--grafite); margin-bottom: 0.5rem;
+    }
+    footer .footer-ampersand { color: var(--ambar); }
+    footer .footer-versiculo {
+      max-width: 560px; margin: 0.8rem auto 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem; font-style: italic;
+      letter-spacing: 0.04em; line-height: 1.6;
+      color: var(--grafite-leve);
+    }
+    footer .footer-versiculo-ref {
+      margin-top: 0.3rem;
+      font-size: 0.68rem; letter-spacing: 0.15em;
+      color: var(--grafite-leve);
     }
     /* ───── POP-UP ───── */
     .popup-overlay {
@@ -288,7 +347,7 @@
     }
     .popup-overlay.ativo { display: flex; }
     .popup-card {
-      background: var(--creme);
+      background: #fff;
       border: 1px solid rgba(232,184,75,0.3);
       border-radius: 8px;
       padding: 3rem 2.5rem;
@@ -303,14 +362,15 @@
       to { opacity: 1; transform: scale(1) translateY(0); }
     }
     .popup-check {
-      width: 60px; height: 60px;
-      background: #7A9C72;
-      border-radius: 50%;
+      width: 76px; height: 44px;
+      background: #eef4ea;
+      border: 1px solid rgba(122,156,114,0.58);
+      border-radius: 999px;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 1.2rem;
       animation: popupCheck 0.5s ease 0.2s both;
     }
-    .popup-check svg { width: 28px; height: 28px; }
+    .popup-check svg { width: 24px; height: 24px; stroke: #7A9C72; }
     @keyframes popupCheck {
       0% { transform: scale(0); opacity: 0; }
       50% { transform: scale(1.15); }
@@ -355,15 +415,16 @@
       color: var(--grafite-leve); margin-bottom: 1.5rem;
     }
     .popup-btn {
-      background: var(--girassol); color: var(--grafite);
-      border: none; padding: 0.8rem 2rem;
+      background: #f8efd8; color: #80602e;
+      border: 1px solid rgba(217,163,58,0.55); padding: 0.7rem 1.8rem;
       font-family: 'Jost', sans-serif;
       font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      border-radius: 4px; cursor: pointer;
-      transition: background .3s;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      border-radius: 999px; cursor: pointer;
+      transition: background .3s, border-color .3s, transform .3s;
     }
-    .popup-btn:hover { background: var(--ambar); }
+    .recado-popup-btn { padding: 0.62rem 1.55rem; margin-top: 1rem; }
+    .popup-btn:hover { background: #f3e2b7; border-color: var(--ambar); transform: translateY(-1px); }
 
     /* ───── PRESENTES / VARAL ───── */
     #presentes { background: var(--creme); }
@@ -378,7 +439,7 @@
       box-shadow: 0 2px 12px rgba(61,53,48,0.06); transition: transform .2s;
     }
     .varal-item:hover { transform: translateY(-3px); }
-    .varal-emoji { font-size: 2.2rem; margin-bottom: 0.6rem; }
+    .varal-imagem { width: 100%; height: 128px; object-fit: cover; border-radius: 8px; display: block; margin-bottom: 0.85rem; }
     .varal-nome { font-size: 0.85rem; font-weight: 500; color: var(--grafite); margin-bottom: 0.3rem; }
     .varal-valor { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--girassol); }
     .varal-tag { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
@@ -403,6 +464,30 @@
       text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: background .3s;
     }
     .pix-card-pub .btn-copiar:hover { background: var(--ambar); }
+    .lista-em-breve {
+      background: white; border: 1px solid rgba(232,184,75,0.2);
+      border-radius: 12px; padding: 1.5rem; text-align: center;
+      max-width: 520px; margin: 2.5rem auto 0;
+      box-shadow: 0 4px 20px rgba(61,53,48,0.06);
+    }
+    .lista-em-breve-titulo {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+      color: var(--grafite); margin-bottom: 0.5rem;
+    }
+    .lista-em-breve p:last-child { font-size: 0.82rem; color: var(--grafite-leve); line-height: 1.7; }
+    #recadinhos { background: var(--marfim); }
+    .recados-layout { width: 100%; margin: 2rem 0 0; }
+    .recado-form { display: flex; flex-direction: column; gap: .8rem; }
+    .recado-form input, .recado-form textarea { border: 1px solid rgba(168,184,154,.5); background: white; border-radius: 4px; padding: .9rem 1rem; font-family: inherit; color: var(--grafite); }
+    .recado-form textarea { min-height: 130px; resize: vertical; }
+    .recado-form input:focus, .recado-form textarea:focus { outline: none; border-color: var(--girassol); }
+    .recado-form button { align-self: flex-start; border: 1px solid #e8d39a; background: #f3e8c4; color: #8a6525; padding: .85rem 1.35rem; border-radius: 999px; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; box-shadow: 0 3px 10px rgba(61,53,48,.06); transition: transform .2s, background .2s; }
+    .recado-form button:hover { background: #ede0b4; transform: translateY(-1px); }
+    .recado-status { margin: .2rem 0 0; color: #6b5330; font-size: .78rem; line-height: 1.5; }
+    .recados-lista { display: flex; gap: 1rem; overflow-x: auto; margin-top: 2rem; padding: .25rem 0 .7rem; scrollbar-width: thin; }
+    .recado-card-publicado { flex: 0 0 min(290px, 78vw); min-height: 150px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #fffdf7; border: 1px solid rgba(217,163,58,.48); border-radius: 12px; padding: 1.1rem 1.15rem; scroll-snap-align: start; }
+    .recado-card-publicado p { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; line-height: 1.45; color: var(--grafite-leve); }
+    .recado-card-publicado span { display: block; margin-top: .9rem; color: var(--ambar); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
 
     html { scroll-behavior: smooth; }
     @media (max-width: 600px) {
@@ -420,19 +505,18 @@
   <a href="#detalhes">Detalhes</a>
   <a href="#paleta-madrinhas">Dress Code</a>
   <a href="#presentes">Presentes</a>
+  <a href="#recadinhos">Recadinhos</a>
   <a href="#presenca">Confirmar</a>
 </nav>
 
 <!-- HERO -->
 <section id="inicio">
   <p class="hero-tag">✦ Casamento ✦</p>
-  <div class="monogram">
-    <span>C</span>
-    <span class="divider">&</span>
-    <span>N</span>
-  </div>
-  <h1 class="nome-casal">Clariny <em>&</em> Nathan</h1>
-  <p class="hero-data">07 · 11 · 2026</p>
+  <h1 class="hero-logo">
+    <img src="logo-monograma-transparente.png" alt="Monograma dourado de Nathan e Clariny" />
+  </h1>
+  <p class="hero-nomes">Nathan <span class="hero-ampersand">&amp;</span> Clariny</p>
+  <p class="hero-data">16 · 05 · 2027</p>
   <div class="sep-line"></div>
   <p class="versiculo-hero">
     "O cordão de três dobras não se rompe facilmente."
@@ -449,22 +533,21 @@
 <!-- HISTÓRIA -->
 <section id="historia">
   <div class="section-wrap">
-    <p class="section-label">Clariny & Nathan</p>
+    <p class="section-label">Nathan & Clariny</p>
     <h2 class="section-title">Nossa História</h2>
-    <p class="historia-quote">"Duas vidas, um propósito, Deus no centro."</p>
+    <p class="historia-quote">"O amor tudo sofre, tudo crê, tudo espera, tudo suporta."</p>
     <p class="body-text">
-      Toda história de amor começa com um encontro que a gente não planeja — mas que Deus já preparou antes mesmo de nos conhecermos. A nossa não foi diferente.
-      Desde aquele primeiro momento, algo mudou: percebemos que não éramos apenas duas pessoas que se gostavam, mas um cordão que estava sendo tecido, fio a fio, com o amor de Deus como o terceiro e mais forte laço.
+      Há quatro anos, no Dia dos Namorados, Deus transformou uma amizade que começara no Instagram em um encontro que marcaria nossas vidas. Nós nos conhecemos em um acampamento da Central, mas foi em um culto, no dia 12 de junho, que conversamos pessoalmente pela primeira vez. Desde então, entre idas à igreja, conversas e caminhos compartilhados, fomos nos aproximando. Éramos jovens — eu recém-chegada a Belo Horizonte — e descobrimos juntos a beleza do primeiro amor. Em meio à novidade da vida, encontramos apoio, cuidado e companhia.
     </p>
     <br/>
     <p class="body-text">
-      Agora chegou o dia de dizer sim — diante de Deus, da família e dos amigos — confirmando o que o coração já sabe: que juntos somos mais fortes, e que Ele, que começou essa história, vai completá-la.
+      De lá para cá, o Senhor nos moldou. Passamos por fases felizes e difíceis, aprendendo a amadurecer como pessoas, cristãos, profissionais e companheiros. Aprendemos que o amor não se sustenta apenas no sentimento, mas na escolha diária de permanecer, servir, respeitar e fazer o outro se sentir amado. É escolher deixar o orgulho de lado e firmar a vida a dois na Rocha, que é Jesus. Hoje, nosso convite é para que vocês testemunhem a nossa escolha: o nosso amor, o nosso sim e o compromisso de continuar escolhendo um ao outro, todos os dias.
     </p>
-    <div class="sep-line"></div>
-    <p class="versiculo-hero" style="font-size:0.95rem; max-width:500px;">
-      "Considerai os lírios do campo, como crescem; não trabalham, nem fiam. E digo-vos que nem mesmo Salomão, em toda a sua glória, se vestiu como qualquer deles."
+    <div class="sep-line historia-divider"></div>
+    <p class="versiculo-hero historia-versiculo">
+      "Melhor serem dois do que um, porque maior é a recompensa do trabalho de duas pessoas."
     </p>
-    <p class="versiculo-ref">Mateus 6:28–29</p>
+    <p class="versiculo-ref historia-versiculo-ref">Eclesiastes 4:9</p>
   </div>
 </section>
 
@@ -479,21 +562,21 @@
           <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="16" y1="14" x2="16" y2="14.01"/><line x1="8" y1="18" x2="8" y2="18.01"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
         </div>
         <div class="detalhe-titulo">Data</div>
-        <div class="detalhe-texto">07 de Novembro<br/>de 2026</div>
+        <div class="detalhe-texto">16 de Maio<br/>de 2027</div>
       </div>
       <div class="detalhe-card">
         <div class="detalhe-icone">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <div class="detalhe-titulo">Horário</div>
-        <div class="detalhe-texto">Cerimônia às 17h<br/>Recepção às 19h</div>
+        <div class="detalhe-texto">Cerimônia às 15h30</div>
       </div>
       <div class="detalhe-card">
         <div class="detalhe-icone">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
-        <div class="detalhe-titulo">Local</div>
-        <div class="detalhe-texto">A confirmar em breve</div>
+        <div class="detalhe-titulo">Confirmar</div>
+        <div class="detalhe-texto">Até 15/02/2027<br/>(90 dias antes)</div>
       </div>
       <div class="detalhe-card">
         <div class="detalhe-icone">
@@ -502,13 +585,22 @@
         <div class="detalhe-titulo">Estilo</div>
         <div class="detalhe-texto">Miniwedding<br/>Ao ar livre</div>
       </div>
-      <div class="detalhe-card">
-        <div class="detalhe-icone">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <div class="detalhe-titulo">Confirmar</div>
-        <div class="detalhe-texto">Até 07/09/2026<br/>(60 dias antes)</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="localizacao" class="localizacao">
+  <div class="section-wrap">
+    <p class="section-label">Localização</p>
+    <h2 class="section-title">Casa Monarca</h2>
+    <div class="mapa-conteudo">
+      <div class="mapa-cartao">
+        <div class="detalhe-titulo">Onde será</div>
+        <div class="detalhe-texto">Av. Dom Orione, 200<br/>São Luiz, Belo Horizonte — MG<br/>31310-020</div>
+        <a class="mapa-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Monarca%2C+Av.+Dom+Orione%2C+200%2C+S%C3%A3o+Luiz%2C+Belo+Horizonte%2C+MG%2C+31310-020" target="_blank" rel="noopener">Abrir no Google Maps ↗</a>
       </div>
+      <a class="mapa-imagem-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Monarca%2C+Av.+Dom+Orione%2C+200%2C+S%C3%A3o+Luiz%2C+Belo+Horizonte%2C+MG%2C+31310-020" target="_blank" rel="noopener"><img class="mapa-frame mapa-imagem" src="assets/mapa-casa-monarca.svg" alt="Mapa da localização da Casa Monarca; clique para abrir no Google Maps" /></a>
     </div>
   </div>
 </section>
@@ -517,47 +609,33 @@
 <section id="paleta-madrinhas">
   <div class="section-wrap">
     <p class="section-label">Dress Code</p>
-    <h2 class="section-title">Paleta das Madrinhas</h2>
-    <p class="body-text">Essas são as cores reservadas para as madrinhas. Por gentileza, evite usar esses tons para que elas se destaquem no dia.</p>
-    <div class="paleta-grid">
-      <div class="cor-card">
-        <div class="cor-swatch" style="background:#FFF176;"></div>
-        <div class="cor-info">
-          <div class="cor-nome">Amarelo Claro</div>
-          <div class="cor-hex">#FFF176</div>
+    <h2 class="section-title">Paleta Madrinhas &amp; Padrinhos</h2>
+    <p class="body-text">Madrinhas em tons de amarelo suave e padrinhos em tons claros, com detalhes amarelos.</p>
+    <div class="paleta-composicao">
+      <figure class="paleta-figura">
+        <img src="assets/padrinhos-madrinhas-sem-fundo.png" alt="Referência visual dos vestidos amarelos das madrinhas e dos trajes claros dos padrinhos" />
+      </figure>
+      <div class="paleta-tonalidades">
+        <div class="paleta-grupo">
+          <p class="paleta-grupo-titulo">Madrinhas</p>
+          <div class="paleta-bolinhas">
+            <div class="paleta-bolinha"><div class="bolinha" style="background:#FFF8D6;"></div><span>Baunilha</span></div>
+            <div class="paleta-bolinha"><div class="bolinha" style="background:#F5E27A;"></div><span>Sol suave</span></div>
+            <div class="paleta-bolinha"><div class="bolinha" style="background:#E8B84B;"></div><span>Girassol</span></div>
+          </div>
         </div>
-      </div>
-      <div class="cor-card">
-        <div class="cor-swatch" style="background:#F5A623;"></div>
-        <div class="cor-info">
-          <div class="cor-nome">Laranja</div>
-          <div class="cor-hex">#F5A623</div>
-        </div>
-      </div>
-      <div class="cor-card">
-        <div class="cor-swatch" style="background:#C5B8E8;"></div>
-        <div class="cor-info">
-          <div class="cor-nome">Lilás</div>
-          <div class="cor-hex">#C5B8E8</div>
-        </div>
-      </div>
-      <div class="cor-card">
-        <div class="cor-swatch" style="background:#B5D8F0;"></div>
-        <div class="cor-info">
-          <div class="cor-nome">Azul Bebê</div>
-          <div class="cor-hex">#B5D8F0</div>
-        </div>
-      </div>
-      <div class="cor-card">
-        <div class="cor-swatch" style="background:#F4B860;"></div>
-        <div class="cor-info">
-          <div class="cor-nome">Amarelo Queimado</div>
-          <div class="cor-hex">#F4B860</div>
+        <div class="paleta-grupo">
+          <p class="paleta-grupo-titulo">Padrinhos</p>
+          <div class="paleta-bolinhas">
+            <div class="paleta-bolinha"><div class="bolinha" style="background:#F2E8D5;"></div><span>Areia</span></div>
+            <div class="paleta-bolinha"><div class="bolinha" style="background:#E5D7BE;"></div><span>Bege claro</span></div>
+            <div class="paleta-bolinha"><div class="bolinha" style="background:#F5E27A;"></div><span>Detalhe amarelo</span></div>
+          </div>
         </div>
       </div>
     </div>
     <div class="paleta-aviso">
-      Pedimos com carinho que os convidados <strong>evitem tons de amarelo, laranja, lilás, azul bebê e branco</strong>, para não coincidir com as madrinhas e a noiva. Obrigada pela compreensão!
+      Pedimos com carinho que os convidados evitem os tons reservados para madrinhas e padrinhos.
     </div>
   </div>
 </section>
@@ -566,96 +644,106 @@
 <section id="presentes">
   <div class="section-wrap">
     <p class="section-label">Presentes</p>
-    <h2 class="section-title">Nossa Casa Nova</h2>
+    <h2 class="section-title">Lista de presentes</h2>
     <div class="presentes-intro">
       <p class="body-text" style="text-align:center;">
-        Sua presença é o nosso maior presente! Mas se quiser nos ajudar a montar nosso lar, escolha um item do varal ou contribua com qualquer valor via PIX.
+        Ficamos muito felizes com a sua presença! Se quiser nos presentear, preparamos uma seleção de sugestões com carinho para celebrar esse novo capítulo ao nosso lado.
       </p>
     </div>
 
     <div class="varal-grid">
       <div class="varal-item">
-        <p class="varal-emoji">🍳</p>
+        <img class="varal-imagem" src="assets/presente-cozinha-realista.png" alt="Jogo de panelas" />
         <p class="varal-nome">Jogo de Panelas</p>
         <p class="varal-valor">R$ 250</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">🛏️</p>
+        <img class="varal-imagem" src="assets/presente-cama-realista.png" alt="Jogo de cama" />
         <p class="varal-nome">Jogo de Cama</p>
         <p class="varal-valor">R$ 200</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">🥤</p>
+        <img class="varal-imagem" src="assets/presente-liquidificador-realista.png" alt="Liquidificador" />
         <p class="varal-nome">Liquidificador</p>
         <p class="varal-valor">R$ 150</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">🧺</p>
+        <img class="varal-imagem" src="assets/presente-toalhas-realista.png" alt="Jogo de toalhas" />
         <p class="varal-nome">Jogo de Toalhas</p>
         <p class="varal-valor">R$ 120</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">☕</p>
+        <img class="varal-imagem" src="assets/presente-cafe-realista.png" alt="Cafeteira" />
         <p class="varal-nome">Cafeteira</p>
         <p class="varal-valor">R$ 180</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">🍽️</p>
+        <img class="varal-imagem" src="assets/presente-cozinha-realista.png" alt="Aparelho de jantar" />
         <p class="varal-nome">Aparelho de Jantar</p>
         <p class="varal-valor">R$ 200</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">🏠</p>
+        <img class="varal-imagem" src="assets/presente-aspirador-realista.png" alt="Aspirador de pó" />
         <p class="varal-nome">Aspirador de Pó</p>
         <p class="varal-valor">R$ 300</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">🌿</p>
+        <img class="varal-imagem" src="assets/presente-decoracao-realista.png" alt="Kit de decoração" />
         <p class="varal-nome">Kit Decoração</p>
         <p class="varal-valor">R$ 100</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">🔪</p>
+        <img class="varal-imagem" src="assets/presente-cozinha-realista.png" alt="Jogo de facas" />
         <p class="varal-nome">Jogo de Facas</p>
         <p class="varal-valor">R$ 80</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">💡</p>
+        <img class="varal-imagem" src="assets/presente-luminaria-realista.png" alt="Luminária" />
         <p class="varal-nome">Luminária</p>
         <p class="varal-valor">R$ 90</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">🧹</p>
+        <img class="varal-imagem" src="assets/presente-organizacao-realista.png" alt="Kit de organização" />
         <p class="varal-nome">Kit Organização</p>
         <p class="varal-valor">R$ 60</p>
         <span class="varal-tag">Disponível</span>
       </div>
       <div class="varal-item">
-        <p class="varal-emoji">💛</p>
-        <p class="varal-nome">Valor Livre</p>
-        <p class="varal-valor">R$ ?</p>
-        <span class="varal-tag">Qualquer valor</span>
+        <img class="varal-imagem" src="assets/presente-gelato-italia-realista.png" alt="Presente de valor livre" />
+        <p class="varal-nome">Gelato na Itália</p>
+        <p class="varal-valor">R$ 200</p>
+        <span class="varal-tag">Experiência</span>
       </div>
     </div>
 
-    <div class="pix-card-pub">
-      <p class="pix-titulo">Contribua via PIX</p>
-      <p style="font-size:0.82rem; color:var(--grafite-leve); margin-bottom:0.5rem;">Clariny Botelho</p>
-      <div class="pix-chave" id="pixChavePub">CHAVE-PIX-AQUI</div>
-      <button class="btn-copiar" onclick="copiarPixPub()">Copiar chave ✦</button>
-      <p style="font-size:0.7rem; color:var(--grafite-leve); margin-top:0.8rem; font-style:italic;">
-        Coloque seu nome na descrição para sabermos quem presenteou!
-      </p>
+  </div>
+</section>
+
+<!-- RECADINHOS -->
+<section id="recadinhos">
+  <div class="section-wrap">
+    <p class="section-label">Mensagens</p>
+    <h2 class="section-title">Deixe um recadinho</h2>
+    <p class="body-text">Escreva uma mensagem de carinho para nós e deixe esse momento ainda mais especial.</p>
+    <div class="recados-layout">
+      <form class="recado-form" name="recadinhos" method="POST" onsubmit="enviarRecadinho(event)">
+        <input type="text" name="nome" placeholder="Seu nome" aria-label="Seu nome" required />
+        <textarea name="mensagem" placeholder="Escreva sua mensagem..." aria-label="Sua mensagem" required></textarea>
+        <button type="submit">Enviar recadinho ✦</button>
+        <p class="recado-status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="recados-lista" id="recadosLista" aria-live="polite">
+      </div>
     </div>
   </div>
 </section>
@@ -665,10 +753,10 @@
   <div class="section-wrap">
     <p class="section-label">Confirmação</p>
     <h2 class="section-title">Confirmar Presença</h2>
-    <p class="body-text">Sua presença é o nosso maior presente. Por favor, confirme até 07 de setembro de 2026.</p>
+    <p class="body-text">Sua presença é muito especial para nós! Por favor, confirme até 15 de fevereiro de 2027.</p>
     <form class="rsvp-form" onsubmit="confirmarPresenca(event)">
       <input type="text" placeholder="Seu nome completo" required />
-      <input type="email" placeholder="Seu e-mail" />
+      <input type="email" placeholder="Seu e-mail" required />
       <button type="submit" class="btn-rsvp">Confirmar Presença ✦</button>
     </form>
   </div>
@@ -679,7 +767,7 @@
   <div class="popup-card">
     <div class="popup-close" onclick="fecharPopup()">✕</div>
     <div class="popup-check">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7A9C72" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
     <p class="popup-label">PRESENÇA CONFIRMADA</p>
     <h2 class="popup-titulo">Obrigado, <span id="popupNome"></span>!</h2>
@@ -687,22 +775,38 @@
     <p class="popup-texto">Estamos muito felizes que você estará conosco nesse dia tão especial.</p>
     <p class="popup-texto" style="margin-top:0.8rem;">Um e-mail de confirmação foi enviado para <strong id="popupEmail"></strong></p>
     <div class="popup-linha"></div>
-    <p class="popup-data">07 · 11 · 2026</p>
+    <p class="popup-data">16 · 05 · 2027</p>
     <button class="popup-btn" onclick="fecharPopup()">Fechar ✦</button>
   </div>
 </div>
 
+<!-- POP-UP RECADINHO ENVIADO -->
+<div class="popup-overlay" id="recadoPopupOverlay">
+  <div class="popup-card">
+    <div class="popup-close" onclick="fecharRecadoPopup()">✕</div>
+    <div class="popup-check">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7A9C72" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <p class="popup-label">RECADO RECEBIDO</p>
+    <h2 class="popup-titulo">Obrigada pelo carinho!</h2>
+    <div class="popup-linha"></div>
+    <p class="popup-texto">Obrigada por enviar o seu recadinho! Vamos ficar muito felizes com o seu carinho e com a sua mensagem.</p>
+    <button class="popup-btn recado-popup-btn" onclick="fecharRecadoPopup()">Fechar ✦</button>
+  </div>
+</div>
+
 <footer>
-  <p class="footer-nomes">Clariny & Nathan</p>
-  <p>07 DE NOVEMBRO DE 2026</p>
-  <p style="margin-top:0.8rem; font-style:italic; color:rgba(250,247,240,0.4);">
-    "O que Deus uniu, ninguém separe." — Mateus 19:6
+  <p class="footer-nomes">Nathan <span class="footer-ampersand">&amp;</span> Clariny</p>
+  <p>16 DE MAIO DE 2027</p>
+  <p class="footer-versiculo">
+    "Assim, eles já não são dois, mas sim uma só carne.<br />Portanto, o que Deus uniu, ninguém separe."
   </p>
+  <p class="footer-versiculo-ref">Mateus 19:6</p>
 </footer>
 
 <script>
   function atualizarContagem() {
-    const casamento = new Date('2026-11-07T17:00:00-03:00');
+    const casamento = new Date('2027-05-16T15:30:00-03:00');
     const agora = new Date();
     const diff = casamento - agora;
     if (diff <= 0) {
@@ -732,17 +836,18 @@
     btn.disabled = true;
     btn.style.opacity = '0.6';
 
-    fetch('https://script.google.com/macros/s/AKfycbwEHjRDXScp7o_K3rvtR_b94SQZWSO-LzfcRhg_-sattKqnM9lvXEq9743PzrWRyUJTfg/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzKNq5fK64aso8-YL4iGIpjq3M-mVGDPvdVtcoMy4mml675Bd6UNpjv2LiRz2fq1gmNtA/exec', {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ nome: nome, email: email })
     })
     .then(function() {
       btn.textContent = 'PRESENÇA CONFIRMADA ✦';
       btn.style.opacity = '1';
-      btn.style.background = '#7A9C72';
-      btn.style.color = 'white';
+      btn.style.background = '#eef4ea';
+      btn.style.borderColor = '#9ab393';
+      btn.style.color = '#6d8e66';
       form.querySelector('input[type="text"]').disabled = true;
       form.querySelector('input[type="email"]').disabled = true;
       document.getElementById('popupNome').textContent = nome.split(' ')[0];
@@ -762,8 +867,67 @@
       }, 3000);
     });
   }
+  function enviarRecadinho(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button');
+    const status = form.querySelector('.recado-status');
+    const textoOriginal = btn.textContent;
+    btn.textContent = 'ENVIANDO...';
+    btn.disabled = true;
+    status.textContent = '';
+
+    if (window.location.protocol === 'file:') {
+      form.reset();
+      btn.textContent = textoOriginal;
+      btn.disabled = false;
+      status.textContent = '';
+      abrirRecadoPopup();
+      return;
+    }
+
+    fetch('https://script.google.com/macros/s/AKfycbzKNq5fK64aso8-YL4iGIpjq3M-mVGDPvdVtcoMy4mml675Bd6UNpjv2LiRz2fq1gmNtA/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ tipo: 'recadinho', nome: form.nome.value.trim(), mensagem: form.mensagem.value.trim() })
+    })
+    .then(function() {
+      form.reset();
+      btn.textContent = textoOriginal;
+      btn.disabled = false;
+      status.textContent = '';
+      abrirRecadoPopup();
+    })
+    .catch(function() {
+      btn.textContent = textoOriginal;
+      btn.disabled = false;
+      status.textContent = 'Não foi possível enviar agora. Tente novamente.';
+    });
+  }
+  function escaparTextoRecado(valor) {
+    return String(valor).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function carregarRecadinhos() {
+    window.receberRecadinhos = function(resposta) {
+      var lista = document.getElementById('recadosLista');
+      if (!lista || !resposta || !resposta.recados || !resposta.recados.length) return;
+      lista.innerHTML = resposta.recados.map(function(recado) {
+        return '<article class="recado-card-publicado"><p>“' + escaparTextoRecado(recado.mensagem) + '”</p><span>' + escaparTextoRecado(recado.nome) + '</span></article>';
+      }).join('');
+    };
+    var script = document.createElement('script');
+    script.src = 'https://script.google.com/macros/s/AKfycbzKNq5fK64aso8-YL4iGIpjq3M-mVGDPvdVtcoMy4mml675Bd6UNpjv2LiRz2fq1gmNtA/exec?acao=lista&callback=receberRecadinhos';
+    document.body.appendChild(script);
+  }
   function fecharPopup() {
     document.getElementById('popupOverlay').classList.remove('ativo');
+  }
+  function abrirRecadoPopup() {
+    document.getElementById('recadoPopupOverlay').classList.add('ativo');
+  }
+  function fecharRecadoPopup() {
+    document.getElementById('recadoPopupOverlay').classList.remove('ativo');
   }
   function copiarPixPub(){
     var chave=document.getElementById('pixChavePub').textContent;
@@ -775,6 +939,7 @@
     });
   }
   atualizarContagem();
+  carregarRecadinhos();
   setInterval(atualizarContagem, 1000);
 </script>
 
