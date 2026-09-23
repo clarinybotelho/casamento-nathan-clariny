@@ -238,10 +238,10 @@
     /* ───── DETALHES ───── */
     #detalhes { background: var(--marfim); }
     .detalhes-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2rem; margin-top: 2rem;
     }
-    .detalhe-card {
+    .detalhe-card:nth-child(3) { grid-column: 2; grid-row: 2; } .detalhe-card {
       border-left: 2px solid var(--girassol);
       padding-left: 1.2rem;
     }
@@ -281,7 +281,7 @@
     .mapa-frame { width: 100%; min-height: 300px; border: 0; border-radius: 12px; box-shadow: 0 4px 18px rgba(61,53,48,0.1); }
     .mapa-imagem { height: 220px; object-fit: cover; background: #eee9df; }
     .mapa-imagem-link { display: block; border-radius: 12px; overflow: hidden; }
-    @media (max-width: 720px) { .mapa-conteudo { grid-template-columns: 1fr; } .mapa-frame { min-height: 260px; } }
+    @media (max-width: 720px) { .detalhes-grid { grid-template-columns: 1fr; } .detalhe-card:nth-child(3) { grid-column: auto; grid-row: auto; } .mapa-conteudo { grid-template-columns: 1fr; } .mapa-frame { min-height: 260px; } }
 
     /* ───── CONFIRMAR PRESENÇA ───── */
     #presenca { background: var(--creme); }
