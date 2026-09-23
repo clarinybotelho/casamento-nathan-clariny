@@ -857,7 +857,14 @@
   function confirmarPresenca(e) {
     e.preventDefault();
     const form = e.target;
-    const nome = form.elements.nome.value.trim();
+    const nomeInput = form.elements.nome;
+    const nome = nomeInput.value.trim();
+    if (nome.split(/\s+/).filter(Boolean).length < 2) {
+      nomeInput.setCustomValidity('Digite seu nome e sobrenome para continuar.');
+      nomeInput.reportValidity();
+      return;
+    }
+    nomeInput.setCustomValidity('');
     const email = form.elements.email.value.trim();
     const temCriancas = form.elements.temCriancas.value;
     const criancas = temCriancas === 'Sim'
@@ -907,6 +914,9 @@
   (function configurarCamposCriancas() {
     const form = document.querySelector('.rsvp-form');
     if (!form) return;
+    form.elements.nome.addEventListener('input', function() {
+      form.elements.nome.setCustomValidity('');
+    });
     const painel = document.getElementById('childrenFields');
     const quantidade = document.getElementById('childCount');
     const lista = document.getElementById('childGuests');
