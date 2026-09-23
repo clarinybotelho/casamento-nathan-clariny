@@ -875,6 +875,15 @@
           };
         })
       : [];
+    const nomeCriancaInvalido = Array.from(form.querySelectorAll('.child-guest')).find(function(bloco) {
+      return bloco.querySelector('[name="nomeCrianca"]').value.trim().split(/\s+/).filter(Boolean).length < 2;
+    });
+    if (nomeCriancaInvalido) {
+      const campoNomeCrianca = nomeCriancaInvalido.querySelector('[name="nomeCrianca"]');
+      campoNomeCrianca.setCustomValidity('Digite o nome e sobrenome da criança.');
+      campoNomeCrianca.reportValidity();
+      return;
+    }
     const btn = form.querySelector('.btn-rsvp');
 
     btn.textContent = 'ENVIANDO...';
@@ -938,6 +947,9 @@
         bloco.innerHTML = '<span class="child-guest-title">Criança ' + i + '</span>' +
           '<input type="text" name="nomeCrianca" placeholder="Nome e sobrenome" aria-label="Nome e sobrenome da criança ' + i + '" autocomplete="off" required />' +
           '<input type="number" name="idadeCrianca" placeholder="Idade" aria-label="Idade da criança ' + i + '" min="0" max="17" step="1" required />';
+        bloco.querySelector('[name="nomeCrianca"]').addEventListener('input', function() {
+          this.setCustomValidity('');
+        });
         lista.appendChild(bloco);
       }
     });
