@@ -289,7 +289,7 @@
       display: flex; flex-direction: column; gap: 1rem;
       max-width: 480px; margin-top: 2rem;
     }
-    .rsvp-form input {
+    .rsvp-form input:not([type="radio"]), .rsvp-form select {
       border: 1px solid rgba(168,184,154,0.5);
       background: white; border-radius: 4px;
       padding: 0.85rem 1rem;
@@ -297,7 +297,17 @@
       color: var(--grafite); outline: none;
       transition: border-color .3s;
     }
-    .rsvp-form input:focus { border-color: var(--girassol); }
+    .rsvp-form input:focus, .rsvp-form select:focus { border-color: var(--girassol); }
+    .rsvp-fieldset { border: 0; padding: 0; margin: 0; }
+    .rsvp-fieldset legend, .children-count-label { margin-bottom: 0.55rem; font-size: 0.82rem; color: var(--grafite-leve); }
+    .rsvp-choices { display: flex; gap: 1.25rem; }
+    .rsvp-choice { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.86rem; color: var(--grafite-leve); cursor: pointer; }
+    .rsvp-choice input { accent-color: var(--ambar); }
+    .children-fields { display: flex; flex-direction: column; gap: 0.85rem; }
+    .children-fields[hidden] { display: none; }
+    .child-guest { display: grid; grid-template-columns: minmax(0, 1fr) 110px; gap: 0.65rem; padding: 0.85rem; border-left: 2px solid rgba(232,184,75,0.65); background: rgba(255,255,255,0.42); }
+    .child-guest-title { grid-column: 1 / -1; font-size: 0.76rem; letter-spacing: 0.08em; color: var(--ambar); text-transform: uppercase; }
+    @media (max-width: 480px) { .child-guest { grid-template-columns: 1fr; } .child-guest-title { grid-column: auto; } }
     .btn-rsvp {
       background: #f3e8c4; color: #6b5330;
       border: 1px solid #e8d39a; padding: 1rem 2rem;
@@ -755,8 +765,27 @@
     <h2 class="section-title">Confirmar Presença</h2>
     <p class="body-text">Sua presença é muito especial para nós! Por favor, confirme até 15 de fevereiro de 2027.</p>
     <form class="rsvp-form" onsubmit="confirmarPresenca(event)">
-      <input type="text" placeholder="Seu nome completo" required />
-      <input type="email" placeholder="Seu e-mail" required />
+      <input type="text" name="nome" placeholder="Seu nome completo" autocomplete="name" required />
+      <input type="email" name="email" placeholder="Seu e-mail" autocomplete="email" required />
+      <fieldset class="rsvp-fieldset">
+        <legend>Tem crianças no seu grupo?</legend>
+        <div class="rsvp-choices">
+          <label class="rsvp-choice"><input type="radio" name="temCriancas" value="Não" required /> Não</label>
+          <label class="rsvp-choice"><input type="radio" name="temCriancas" value="Sim" required /> Sim</label>
+        </div>
+      </fieldset>
+      <div class="children-fields" id="childrenFields" hidden>
+        <label class="children-count-label" for="childCount">Quantas crianças?</label>
+        <select id="childCount" name="quantidadeCriancas" disabled>
+          <option value="">Selecione a quantidade</option>
+          <option value="1">1 criança</option><option value="2">2 crianças</option>
+          <option value="3">3 crianças</option><option value="4">4 crianças</option>
+          <option value="5">5 crianças</option><option value="6">6 crianças</option>
+          <option value="7">7 crianças</option><option value="8">8 crianças</option>
+          <option value="9">9 crianças</option><option value="10">10 crianças</option>
+        </select>
+        <div id="childGuests"></div>
+      </div>
       <button type="submit" class="btn-rsvp">Confirmar Presença ✦</button>
     </form>
   </div>
@@ -828,8 +857,17 @@
   function confirmarPresenca(e) {
     e.preventDefault();
     const form = e.target;
-    const nome = form.querySelector('input[type="text"]').value;
-    const email = form.querySelector('input[type="email"]').value;
+    const nome = form.elements.nome.value.trim();
+    const email = form.elements.email.value.trim();
+    const temCriancas = form.elements.temCriancas.value;
+    const criancas = temCriancas === 'Sim'
+      ? Array.from(form.querySelectorAll('.child-guest')).map(function(bloco) {
+          return {
+            nome: bloco.querySelector('[name="nomeCrianca"]').value.trim(),
+            idade: Number(bloco.querySelector('[name="idadeCrianca"]').value)
+          };
+        })
+      : [];
     const btn = form.querySelector('.btn-rsvp');
 
     btn.textContent = 'ENVIANDO...';
@@ -840,7 +878,7 @@
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ nome: nome, email: email })
+      body: JSON.stringify({ nome: nome, email: email, temCriancas: temCriancas, quantidadeCriancas: criancas.length, criancas: criancas })
     })
     .then(function() {
       btn.textContent = 'PRESENÇA CONFIRMADA ✦';
@@ -848,8 +886,7 @@
       btn.style.background = '#eef4ea';
       btn.style.borderColor = '#9ab393';
       btn.style.color = '#6d8e66';
-      form.querySelector('input[type="text"]').disabled = true;
-      form.querySelector('input[type="email"]').disabled = true;
+      Array.from(form.elements).forEach(function(campo) { campo.disabled = true; });
       document.getElementById('popupNome').textContent = nome.split(' ')[0];
       document.getElementById('popupEmail').textContent = email;
       document.getElementById('popupOverlay').classList.add('ativo');
@@ -867,6 +904,34 @@
       }, 3000);
     });
   }
+  (function configurarCamposCriancas() {
+    const form = document.querySelector('.rsvp-form');
+    if (!form) return;
+    const painel = document.getElementById('childrenFields');
+    const quantidade = document.getElementById('childCount');
+    const lista = document.getElementById('childGuests');
+    form.querySelectorAll('input[name="temCriancas"]').forEach(function(opcao) {
+      opcao.addEventListener('change', function() {
+        const mostrar = form.elements.temCriancas.value === 'Sim';
+        painel.hidden = !mostrar;
+        quantidade.disabled = !mostrar;
+        quantidade.required = mostrar;
+        if (!mostrar) { quantidade.value = ''; lista.replaceChildren(); }
+      });
+    });
+    quantidade.addEventListener('change', function() {
+      const total = Number(quantidade.value) || 0;
+      lista.replaceChildren();
+      for (let i = 1; i <= total; i++) {
+        const bloco = document.createElement('div');
+        bloco.className = 'child-guest';
+        bloco.innerHTML = '<span class="child-guest-title">Criança ' + i + '</span>' +
+          '<input type="text" name="nomeCrianca" placeholder="Nome e sobrenome" aria-label="Nome e sobrenome da criança ' + i + '" autocomplete="off" required />' +
+          '<input type="number" name="idadeCrianca" placeholder="Idade" aria-label="Idade da criança ' + i + '" min="0" max="17" step="1" required />';
+        lista.appendChild(bloco);
+      }
+    });
+  })();
   function enviarRecadinho(e) {
     e.preventDefault();
     const form = e.target;
