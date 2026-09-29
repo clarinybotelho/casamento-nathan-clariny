@@ -200,19 +200,24 @@
       align-items: center;
       margin-top: 2rem;
     }
-    .paleta-figura { width: 100%; margin: 0; text-align: center; }
-    .paleta-figura img { display: block; width: 100%; max-width: 560px; margin: 0 auto; height: auto; }
+    .paleta-grupo { min-width: 0; text-align: center; }
+    .paleta-pessoas { display: flex; align-items: flex-end; justify-content: center; margin-bottom: 1.25rem; }
+    .paleta-pessoa { flex: 0 1 240px; min-width: 0; margin: 0; }
+    .paleta-grupo-ilustrado { flex-basis: 440px; }
+    .paleta-pessoa img { display: block; width: 100%; height: clamp(220px, 35vw, 400px); object-fit: contain; object-position: center bottom; }
+    .paleta-grupo-ilustrado[data-pessoas="pietra monica juju poli"] img { transform: translateY(clamp(8px, 1.225vw, 14px)) scale(1.16); }
+    .paleta-grupo-ilustrado[data-pessoas="iuri carlos joao davi-matos"] img { transform: translateY(clamp(12px, 1.75vw, 20px)) scale(1.1); }
     .paleta-tonalidades {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2rem;
-      width: min(100%, 560px);
+      width: min(100%, 960px);
     }
     .paleta-grupo-titulo {
       color: var(--ambar); font-size: 0.72rem; letter-spacing: 0.22em;
       text-transform: uppercase; margin-bottom: 0.75rem;
     }
-    .paleta-bolinhas { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .paleta-bolinhas { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; }
     .paleta-bolinha { display: grid; justify-items: center; gap: 0.35rem; min-width: 64px; }
     .paleta-bolinha .bolinha {
       width: 52px; height: 52px; border-radius: 50%;
@@ -222,8 +227,13 @@
     .paleta-bolinha span { font-size: 0.68rem; color: var(--grafite-leve); text-align: center; }
     @media (max-width: 720px) {
       .paleta-composicao { gap: 1.25rem; }
-      .paleta-figura img { max-width: 440px; }
       .paleta-tonalidades { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: 100%; }
+    }
+    @media (max-width: 540px) {
+      .paleta-bolinhas { gap: 0.3rem; }
+      .paleta-bolinha { min-width: 42px; }
+      .paleta-bolinha .bolinha { width: 36px; height: 36px; }
+      .paleta-bolinha span { font-size: 0.6rem; }
     }
 
     /* ───── HISTÓRIA ───── */
@@ -237,11 +247,16 @@
 
     /* ───── DETALHES ───── */
     #detalhes { background: var(--marfim); }
-    .detalhes-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2rem; margin-top:2rem; }
-    .detalhe-card:nth-child(3) { grid-column: 2; grid-row: 2; } .detalhe-card:nth-child(4) { grid-column: 1; grid-row: 2; } .detalhe-card {
+    .detalhes-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem; margin-top: 2rem;
+    }
+    .detalhe-card {
       border-left: 2px solid var(--girassol);
       padding-left: 1.2rem;
     }
+    .detalhe-card:nth-child(3) { grid-column: 2; grid-row: 2; }
+    .detalhe-card:nth-child(4) { grid-column: 1; grid-row: 2; }
     .detalhe-icone {
       margin-bottom: 0.5rem;
     }
@@ -263,6 +278,10 @@
       font-size: 1.1rem; color: var(--grafite);
       line-height: 1.5;
     }
+    @media (max-width: 720px) {
+      .detalhes-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .detalhe-card:nth-child(3), .detalhe-card:nth-child(4) { grid-column: auto; grid-row: auto; }
+    }
     .mapa-link {
       display: inline-flex; align-items: center; gap: 0.35rem;
       margin-top: 0.75rem;
@@ -278,7 +297,7 @@
     .mapa-frame { width: 100%; min-height: 300px; border: 0; border-radius: 12px; box-shadow: 0 4px 18px rgba(61,53,48,0.1); }
     .mapa-imagem { height: 220px; object-fit: cover; background: #eee9df; }
     .mapa-imagem-link { display: block; border-radius: 12px; overflow: hidden; }
-    @media (max-width: 720px) { .detalhes-grid { grid-template-columns: 1fr; } .detalhe-card:nth-child(3), .detalhe-card:nth-child(4) { grid-column:auto; grid-row:auto; } .mapa-conteudo { grid-template-columns: 1fr; } .mapa-frame { min-height: 260px; } }
+    @media (max-width: 720px) { .mapa-conteudo { grid-template-columns: 1fr; } .mapa-frame { min-height: 260px; } }
 
     /* ───── CONFIRMAR PRESENÇA ───── */
     #presenca { background: var(--creme); }
@@ -580,17 +599,17 @@
       </div>
       <div class="detalhe-card">
         <div class="detalhe-icone">
-          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <div class="detalhe-titulo">Confirmar</div>
-        <div class="detalhe-texto">Até 15/02/2027<br/>(90 dias antes)</div>
-      </div>
-      <div class="detalhe-card">
-        <div class="detalhe-icone">
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div class="detalhe-titulo">Estilo</div>
         <div class="detalhe-texto">Miniwedding<br/>Ao ar livre</div>
+      </div>
+      <div class="detalhe-card">
+        <div class="detalhe-icone">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="detalhe-titulo">Confirmar</div>
+        <div class="detalhe-texto">Até 15/02/2027<br/>(90 dias antes)</div>
       </div>
     </div>
   </div>
@@ -619,11 +638,13 @@
     <h2 class="section-title">Paleta Madrinhas &amp; Padrinhos</h2>
     <p class="body-text">Madrinhas em tons de amarelo suave e padrinhos em tons claros, com detalhes amarelos.</p>
     <div class="paleta-composicao">
-      <figure class="paleta-figura">
-        <img src="assets/padrinhos-madrinhas-sem-fundo.png" alt="Referência visual dos vestidos amarelos das madrinhas e dos trajes claros dos padrinhos" />
-      </figure>
       <div class="paleta-tonalidades">
         <div class="paleta-grupo">
+          <div class="paleta-pessoas" data-grupo="madrinhas">
+            <figure class="paleta-pessoa paleta-grupo-ilustrado" data-pessoas="pietra monica juju poli">
+              <img src="assets/madrinhas-pietra-monica-juju-poli-alturas-ajustadas.png" alt="Pietra, Mônica, Juju e Poli juntas, abraçadas e com vestidos amarelos suaves" />
+            </figure>
+          </div>
           <p class="paleta-grupo-titulo">Madrinhas</p>
           <div class="paleta-bolinhas">
             <div class="paleta-bolinha"><div class="bolinha" style="background:#FFF8D6;"></div><span>Baunilha</span></div>
@@ -632,11 +653,16 @@
           </div>
         </div>
         <div class="paleta-grupo">
+          <div class="paleta-pessoas" data-grupo="padrinhos">
+            <figure class="paleta-pessoa paleta-grupo-ilustrado" data-pessoas="iuri carlos joao davi-matos">
+              <img src="assets/padrinhos-iuri-carlos-joao-davi-matos.png" alt="Iuri, Carlos, João e Davi Matos juntos, abraçados e com ternos claros e gravatas amarelas suaves" />
+            </figure>
+          </div>
           <p class="paleta-grupo-titulo">Padrinhos</p>
           <div class="paleta-bolinhas">
             <div class="paleta-bolinha"><div class="bolinha" style="background:#F2E8D5;"></div><span>Areia</span></div>
             <div class="paleta-bolinha"><div class="bolinha" style="background:#E5D7BE;"></div><span>Bege claro</span></div>
-            <div class="paleta-bolinha"><div class="bolinha" style="background:#F5E27A;"></div><span>Detalhe amarelo</span></div>
+            <div class="paleta-bolinha"><div class="bolinha" style="background:#F8EAA7;"></div><span>Sol suave</span></div>
           </div>
         </div>
       </div>
