@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nathan & Clariny — 16.05.2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -478,7 +480,7 @@
       box-shadow: 0 4px 18px rgba(61,53,48,0.045); transition: transform .2s, box-shadow .2s;
     }
     .varal-item:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(61,53,48,0.09); }
-    .varal-imagem { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; background: var(--marfim); }
+    .varal-imagem { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 12px; background: var(--marfim); }
     .varal-corpo { display: flex; flex: 1; flex-direction: column; align-items: center; text-align: center; padding: 0.75rem 0.3rem 0.25rem; }
     .varal-tag { align-self: center; color: #9a7133; font-size: 0.57rem; letter-spacing: 0.15em; text-transform: uppercase; }
     .varal-nome { display: flex; align-items: center; justify-content: center; min-height: 2.35em; margin: 0.45rem 0 0.6rem; font-family: 'Cormorant Garamond', serif; font-size: 1.24rem; font-weight: 600; line-height: 1.13; color: var(--grafite); }
@@ -583,7 +585,7 @@
 <section id="inicio">
   <p class="hero-tag">✦ Casamento ✦</p>
   <h1 class="hero-logo">
-    <img src="logo-monograma-transparente.webp" alt="Monograma dourado de Nathan e Clariny" />
+    <img src="assets/responsive/logo-monograma-transparente-256.webp" alt="Monograma dourado de Nathan e Clariny" loading="eager" fetchpriority="high" decoding="async" width="256" height="261" />
   </h1>
   <p class="hero-nomes">Nathan <span class="hero-ampersand">&amp;</span> Clariny</p>
   <p class="hero-data">16 · 05 · 2027</p>
@@ -670,7 +672,7 @@
         <div class="detalhe-texto">Av. Dom Orione, 200<br/>São Luiz, Belo Horizonte — MG<br/>31310-020</div>
         <a class="mapa-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Monarca%2C+Av.+Dom+Orione%2C+200%2C+S%C3%A3o+Luiz%2C+Belo+Horizonte%2C+MG%2C+31310-020" target="_blank" rel="noopener">Abrir no Google Maps ↗</a>
       </div>
-      <a class="mapa-imagem-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Monarca%2C+Av.+Dom+Orione%2C+200%2C+S%C3%A3o+Luiz%2C+Belo+Horizonte%2C+MG%2C+31310-020" target="_blank" rel="noopener"><img class="mapa-frame mapa-imagem" src="assets/mapa-casa-monarca.svg" alt="Mapa da localização da Casa Monarca; clique para abrir no Google Maps" /></a>
+      <a class="mapa-imagem-link" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Monarca%2C+Av.+Dom+Orione%2C+200%2C+S%C3%A3o+Luiz%2C+Belo+Horizonte%2C+MG%2C+31310-020" target="_blank" rel="noopener"><img class="mapa-frame mapa-imagem" src="assets/mapa-casa-monarca.svg" alt="Mapa da localização da Casa Monarca; clique para abrir no Google Maps" loading="lazy" decoding="async" /></a>
     </div>
   </div>
 </section>
@@ -686,7 +688,7 @@
         <div class="paleta-grupo">
           <div class="paleta-pessoas" data-grupo="madrinhas">
             <figure class="paleta-pessoa paleta-grupo-ilustrado" data-pessoas="pietra monica poli">
-              <img src="assets/madrinhas-pietra-monica-poli.webp" alt="Pietra, Mônica e Poli juntas, abraçadas e com vestidos amarelos suaves" />
+              <img src="assets/responsive/madrinhas-pietra-monica-poli-400.webp" alt="Pietra, Mônica e Poli juntas, abraçadas e com vestidos amarelos suaves" srcset="assets/responsive/madrinhas-pietra-monica-poli-400.webp 400w, assets/responsive/madrinhas-pietra-monica-poli-800.webp 800w" sizes="(max-width: 720px) 44vw, 400px" loading="lazy" decoding="async" width="400" height="600" />
             </figure>
           </div>
           <p class="paleta-grupo-titulo">Madrinhas</p>
@@ -699,7 +701,7 @@
         <div class="paleta-grupo">
           <div class="paleta-pessoas" data-grupo="padrinhos">
             <figure class="paleta-pessoa paleta-grupo-ilustrado" data-pessoas="iuri carlos davi-matos">
-              <img src="assets/padrinhos-pele-natural-gravatas-manteiga.webp" alt="Iuri, Carlos e Davi Matos juntos, abraçados e com ternos claros e gravatas amarelo-manteiga" />
+              <img src="assets/responsive/padrinhos-pele-natural-gravatas-manteiga-400.webp" alt="Iuri, Carlos e Davi Matos juntos, abraçados e com ternos claros e gravatas amarelo-manteiga" srcset="assets/responsive/padrinhos-pele-natural-gravatas-manteiga-400.webp 400w, assets/responsive/padrinhos-pele-natural-gravatas-manteiga-800.webp 800w" sizes="(max-width: 720px) 44vw, 400px" loading="lazy" decoding="async" width="400" height="600" />
             </figure>
           </div>
           <p class="paleta-grupo-titulo">Padrinhos</p>
@@ -731,89 +733,89 @@
 
     <div class="varal-grid" aria-label="Sugestões de presentes">
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/cafe-da-noiva.webp" alt="Xícara de cappuccino em mesa clara" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/cafe-da-noiva-320.webp" alt="Xícara de cappuccino em mesa clara" loading="lazy" decoding="async" srcset="assets/responsive/cafe-da-noiva-320.webp 320w, assets/responsive/cafe-da-noiva-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Com um sorriso</span><h3 class="varal-nome">Café da noiva para começar o dia</h3><p class="varal-valor">R$ 95</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/w1qkvim8f3xvhfzk" data-asaas-card="https://www.asaas.com/000/c/9tjegp7zdfx48fee" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/pizza-da-folga.webp" alt="Pizza artesanal para dois" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/pizza-da-folga-320.webp" alt="Pizza artesanal para dois" loading="lazy" decoding="async" srcset="assets/responsive/pizza-da-folga-320.webp 320w, assets/responsive/pizza-da-folga-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Com um sorriso</span><h3 class="varal-nome">Pizza para o dia em que ninguém quiser cozinhar</h3><p class="varal-valor">R$ 125</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/ol3xverpigy70syc" data-asaas-card="https://www.asaas.com/000/c/wbx57j9kxivw7oa6" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/kit-organizacao.webp" alt="Itens de organização para a casa" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/kit-organizacao-320.webp" alt="Itens de organização para a casa" loading="lazy" decoding="async" srcset="assets/responsive/kit-organizacao-320.webp 320w, assets/responsive/kit-organizacao-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Kit de organização</h3><p class="varal-valor">R$ 130</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/raxxklhkca3riz23" data-asaas-card="https://www.asaas.com/000/c/9gx79ar0zj5d9ubj" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/corte-do-noivo.webp" alt="Tesoura e pente de barbearia ao lado de uma gravata borboleta" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/corte-do-noivo-320.webp" alt="Tesoura e pente de barbearia ao lado de uma gravata borboleta" loading="lazy" decoding="async" srcset="assets/responsive/corte-do-noivo-320.webp 320w, assets/responsive/corte-do-noivo-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Com um sorriso</span><h3 class="varal-nome">Corte do noivo para o grande dia</h3><p class="varal-valor">R$ 140</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/5168zxeqh2mhxym0" data-asaas-card="https://www.asaas.com/000/c/ao7no5kxq52y588l" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/cinema-a-dois.webp" alt="Pipoca para uma noite de cinema a dois" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/cinema-a-dois-320.webp" alt="Pipoca para uma noite de cinema a dois" loading="lazy" decoding="async" srcset="assets/responsive/cinema-a-dois-320.webp 320w, assets/responsive/cinema-a-dois-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Com um sorriso</span><h3 class="varal-nome">Noite de cinema e muita pipoca</h3><p class="varal-valor">R$ 160</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/yju01fdqm7leoih9" data-asaas-card="https://www.asaas.com/000/c/zy3cfv6gcgk40zsl" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/gelato-na-italia.webp" alt="Dois gelatos em uma praça italiana" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/gelato-na-italia-320.webp" alt="Dois gelatos em uma praça italiana" loading="lazy" decoding="async" srcset="assets/responsive/gelato-na-italia-320.webp 320w, assets/responsive/gelato-na-italia-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Experiência</span><h3 class="varal-nome">Gelato para dois na Itália</h3><p class="varal-valor">R$ 180</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/4nvgomb21edmkawy" data-asaas-card="https://www.asaas.com/000/c/ioa9d34n759ga78b" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/luminaria.webp" alt="Luminária para a casa" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/luminaria-320.webp" alt="Luminária para a casa" loading="lazy" decoding="async" srcset="assets/responsive/luminaria-320.webp 320w, assets/responsive/luminaria-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Luminária para noites aconchegantes</h3><p class="varal-valor">R$ 190</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/nkfei94khu6z7toj" data-asaas-card="https://www.asaas.com/000/c/jfon7wyggqopryso" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/jogo-de-toalhas.webp" alt="Jogo de toalhas claras" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/jogo-de-toalhas-320.webp" alt="Jogo de toalhas claras" loading="lazy" decoding="async" srcset="assets/responsive/jogo-de-toalhas-320.webp 320w, assets/responsive/jogo-de-toalhas-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Jogo de toalhas</h3><p class="varal-valor">R$ 220</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/ixsvxucwtdim7tny" data-asaas-card="https://www.asaas.com/000/c/i4ae54z42guwf56l" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/liquidificador.webp" alt="Liquidificador para a casa" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/liquidificador-320.webp" alt="Liquidificador para a casa" loading="lazy" decoding="async" srcset="assets/responsive/liquidificador-320.webp 320w, assets/responsive/liquidificador-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Liquidificador</h3><p class="varal-valor">R$ 280</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/mja5rxzlo2ixanci" data-asaas-card="https://www.asaas.com/000/c/mvgsomfakv290dg2" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/kit-decoracao.webp" alt="Peças claras de decoração" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/kit-decoracao-320.webp" alt="Peças claras de decoração" loading="lazy" decoding="async" srcset="assets/responsive/kit-decoracao-320.webp 320w, assets/responsive/kit-decoracao-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Kit de decoração</h3><p class="varal-valor">R$ 320</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/qjx8px0fa2h3g2xx" data-asaas-card="https://www.asaas.com/000/c/op5cleqqsmktkqdf" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/kit-cozinha.webp" alt="Panela de cobre e facas de cozinha" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/kit-cozinha-320.webp" alt="Panela de cobre e facas de cozinha" loading="lazy" decoding="async" srcset="assets/responsive/kit-cozinha-320.webp 320w, assets/responsive/kit-cozinha-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Kit para a cozinha</h3><p class="varal-valor">R$ 380</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/3eeyed33jpt1sj3w" data-asaas-card="https://www.asaas.com/000/c/04p95doqkh4tebyd" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/mala-extra-lua-de-mel.webp" alt="Mala clara para guardar lembranças da lua de mel" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/mala-extra-lua-de-mel-320.webp" alt="Mala clara para guardar lembranças da lua de mel" loading="lazy" decoding="async" srcset="assets/responsive/mala-extra-lua-de-mel-320.webp 320w, assets/responsive/mala-extra-lua-de-mel-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Com um sorriso</span><h3 class="varal-nome">Mala extra para trazer lembranças da lua de mel</h3><p class="varal-valor">R$ 420</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/39d37f7jseq8xh07" data-asaas-card="https://www.asaas.com/000/c/3pmqnqedue0wnjv2" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/cafeteira.webp" alt="Cafeteira para a casa" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/cafeteira-320.webp" alt="Cafeteira para a casa" loading="lazy" decoding="async" srcset="assets/responsive/cafeteira-320.webp 320w, assets/responsive/cafeteira-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Cafeteira para manhãs a dois</h3><p class="varal-valor">R$ 480</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/nyc9ousizxjpjnqg" data-asaas-card="https://www.asaas.com/000/c/8o5eog9wmy9dj99d" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/airfryer.webp" alt="Air fryer para a casa" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/airfryer-320.webp" alt="Air fryer para a casa" loading="lazy" decoding="async" srcset="assets/responsive/airfryer-320.webp 320w, assets/responsive/airfryer-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Air fryer salvadora de jantares</h3><p class="varal-valor">R$ 550</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/eh5ru5hmo4ubqldu" data-asaas-card="https://www.asaas.com/000/c/pqn3ehzv7g6necg9" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/jogo-de-cama.webp" alt="Jogo de cama em tons claros" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/jogo-de-cama-320.webp" alt="Jogo de cama em tons claros" loading="lazy" decoding="async" srcset="assets/responsive/jogo-de-cama-320.webp 320w, assets/responsive/jogo-de-cama-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Jogo de cama</h3><p class="varal-valor">R$ 600</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/n524mn83scjdsm9o" data-asaas-card="https://www.asaas.com/000/c/skuu4dm72x6lhi47" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/jantar-romantico.webp" alt="Mesa de jantar romântico para dois" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/jantar-romantico-320.webp" alt="Mesa de jantar romântico para dois" loading="lazy" decoding="async" srcset="assets/responsive/jantar-romantico-320.webp 320w, assets/responsive/jantar-romantico-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Experiência</span><h3 class="varal-nome">Jantar romântico para dois</h3><p class="varal-valor">R$ 650</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/mlq1vz5u3pujevdb" data-asaas-card="https://www.asaas.com/000/c/xjs6eh2q9vx6a0ve" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/aspirador-de-po.webp" alt="Aspirador de pó para a casa" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/aspirador-de-po-320.webp" alt="Aspirador de pó para a casa" loading="lazy" decoding="async" srcset="assets/responsive/aspirador-de-po-320.webp 320w, assets/responsive/aspirador-de-po-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Para o dia a dia</span><h3 class="varal-nome">Aspirador de pó</h3><p class="varal-valor">R$ 780</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/0koz8jlrbc9qsegt" data-asaas-card="https://www.asaas.com/000/c/mgs9g36xbb2o9p7u" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/spa-a-dois.webp" alt="Toalhas e flores em um spa para duas pessoas" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/spa-a-dois-320.webp" alt="Toalhas e flores em um spa para duas pessoas" loading="lazy" decoding="async" srcset="assets/responsive/spa-a-dois-320.webp 320w, assets/responsive/spa-a-dois-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Experiência especial</span><h3 class="varal-nome">Spa para dois na lua de mel</h3><p class="varal-valor">R$ 1.200</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/p278yhyq2faijb1d" data-asaas-card="https://www.asaas.com/000/c/aurc1svysv3783mh" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/diaria-lua-de-mel.webp" alt="Quarto de hotel com vista para o mar" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/diaria-lua-de-mel-320.webp" alt="Quarto de hotel com vista para o mar" loading="lazy" decoding="async" srcset="assets/responsive/diaria-lua-de-mel-320.webp 320w, assets/responsive/diaria-lua-de-mel-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Experiência especial</span><h3 class="varal-nome">Uma diária na lua de mel</h3><p class="varal-valor">R$ 2.250</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/fpelkwxw42t2ngur" data-asaas-card="https://www.asaas.com/000/c/re3qpnffwyf4kmza" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
       <article class="varal-item">
-        <img class="varal-imagem" src="lista-de-presentes/passeio-lua-de-mel.webp" alt="Passeio de barco no litoral italiano ao pôr do sol" loading="lazy" decoding="async" />
+        <img class="varal-imagem" src="assets/responsive/passeio-lua-de-mel-320.webp" alt="Passeio de barco no litoral italiano ao pôr do sol" loading="lazy" decoding="async" srcset="assets/responsive/passeio-lua-de-mel-320.webp 320w, assets/responsive/passeio-lua-de-mel-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
         <div class="varal-corpo"><span class="varal-tag">Experiência especial</span><h3 class="varal-nome">Passeio especial na lua de mel</h3><p class="varal-valor">R$ 2.500</p><button class="presente-btn" type="button" data-asaas-url="https://www.asaas.com/000/c/r4ykde26xwrmhtkc" data-asaas-card="https://www.asaas.com/000/c/74t1uu8mq600jk98" onclick="abrirPresente(this)">Presentear ✦</button></div>
       </article>
     </div>
 
     <article class="presente-livre">
-      <img class="varal-imagem" src="lista-de-presentes/oferta-livre.webp" alt="Envelope claro com selo dourado em formato de coração" loading="lazy" decoding="async" />
+      <img class="varal-imagem" src="assets/responsive/oferta-livre-320.webp" alt="Envelope claro com selo dourado em formato de coração" loading="lazy" decoding="async" srcset="assets/responsive/oferta-livre-320.webp 320w, assets/responsive/oferta-livre-640.webp 640w" sizes="(max-width: 640px) 44vw, (max-width: 900px) 28vw, 190px" width="320" height="320" />
       <div class="presente-livre-texto">
         <span class="varal-tag">A última opção é sua</span>
         <h3>O que Deus colocar no seu coração</h3>
@@ -884,6 +886,7 @@
         <div id="childGuests"></div>
       </div>
       <button type="submit" class="btn-rsvp">Confirmar Presença ✦</button>
+      <p class="rsvp-status" role="status" aria-live="polite" style="font-size:0.85rem;line-height:1.6;color:var(--grafite-leve);"></p>
       <a class="convite-link" href="https://convite-de-casamento-cn.netlify.app/">Ver convite ✦</a>
     </form>
   </div>
@@ -931,6 +934,7 @@
   <p class="footer-versiculo-ref">Mateus 19:6</p>
 </footer>
 
+<script src="formularios.js"></script>
 <script>
   let presenteAvisoTimer;
   function mostrarAvisoPresente(mensagem) {
@@ -997,6 +1001,7 @@
   function confirmarPresenca(e) {
     e.preventDefault();
     const form = e.target;
+    if (form.dataset.enviando === 'true') return;
     const nomeInput = form.elements.nome;
     const nome = nomeInput.value.trim();
     if (nome.split(/\s+/).filter(Boolean).length < 2) {
@@ -1025,17 +1030,15 @@
       return;
     }
     const btn = form.querySelector('.btn-rsvp');
+    const status = form.querySelector('.rsvp-status');
 
+    form.dataset.enviando = 'true';
+    status.textContent = '';
     btn.textContent = 'ENVIANDO...';
     btn.disabled = true;
     btn.style.opacity = '0.6';
 
-    fetch('https://script.google.com/macros/s/AKfycbzKNq5fK64aso8-YL4iGIpjq3M-mVGDPvdVtcoMy4mml675Bd6UNpjv2LiRz2fq1gmNtA/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ nome: nome, email: email, temCriancas: temCriancas, quantidadeCriancas: criancas.length, criancas: criancas })
-    })
+    enviarFormularioConfirmado({ nome: nome, email: email, temCriancas: temCriancas, quantidadeCriancas: criancas.length, criancas: criancas })
     .then(function() {
       btn.textContent = 'PRESENÇA CONFIRMADA ✦';
       btn.style.opacity = '1';
@@ -1047,18 +1050,13 @@
       document.getElementById('popupEmail').textContent = email;
       document.getElementById('popupOverlay').classList.add('ativo');
     })
-    .catch(function() {
-      btn.textContent = 'ERRO — TENTE NOVAMENTE';
+    .catch(function(erro) {
+      btn.textContent = 'CONFIRMAR PRESENÇA ✦';
       btn.disabled = false;
       btn.style.opacity = '1';
-      btn.style.background = '#c0392b';
-      btn.style.color = 'white';
-      setTimeout(function() {
-        btn.textContent = 'CONFIRMAR PRESENÇA ✦';
-        btn.style.background = '#E8B84B';
-        btn.style.color = '#3D3530';
-      }, 3000);
-    });
+      status.textContent = erro.message;
+    })
+    .finally(function() { delete form.dataset.enviando; });
   }
   (function configurarCamposCriancas() {
     const form = document.querySelector('.rsvp-form');
@@ -1097,28 +1095,16 @@
   function enviarRecadinho(e) {
     e.preventDefault();
     const form = e.target;
+    if (form.dataset.enviando === 'true') return;
     const btn = form.querySelector('button');
     const status = form.querySelector('.recado-status');
     const textoOriginal = btn.textContent;
+    form.dataset.enviando = 'true';
     btn.textContent = 'ENVIANDO...';
     btn.disabled = true;
     status.textContent = '';
 
-    if (window.location.protocol === 'file:') {
-      form.reset();
-      btn.textContent = textoOriginal;
-      btn.disabled = false;
-      status.textContent = '';
-      abrirRecadoPopup();
-      return;
-    }
-
-    fetch('https://script.google.com/macros/s/AKfycbzKNq5fK64aso8-YL4iGIpjq3M-mVGDPvdVtcoMy4mml675Bd6UNpjv2LiRz2fq1gmNtA/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ tipo: 'recadinho', nome: form.nome.value.trim(), mensagem: form.mensagem.value.trim() })
-    })
+    enviarFormularioConfirmado({ tipo: 'recadinho', nome: form.nome.value.trim(), mensagem: form.mensagem.value.trim() })
     .then(function() {
       form.reset();
       btn.textContent = textoOriginal;
@@ -1126,11 +1112,12 @@
       status.textContent = '';
       abrirRecadoPopup();
     })
-    .catch(function() {
+    .catch(function(erro) {
       btn.textContent = textoOriginal;
       btn.disabled = false;
-      status.textContent = 'Não foi possível enviar agora. Tente novamente.';
-    });
+      status.textContent = erro.message;
+    })
+    .finally(function() { delete form.dataset.enviando; });
   }
   function escaparTextoRecado(valor) {
     return String(valor).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;').replace(/'/g, '&#39;');
